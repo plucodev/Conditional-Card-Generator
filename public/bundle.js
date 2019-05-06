@@ -705,12 +705,15 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  let aName = "Name";
+  if (variables.name !== null) aName = variables.name;
+  let aLastname = "Lastname";
+  if (variables.lastname !== null) aLastname = variables.lastname;
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name + " " + variables.lastname}</h1>
+          <h1>${aName + " " + aLastname}</h1>
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
           <ul class="position-right">
@@ -735,7 +738,7 @@ window.onload = () => {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "left",
+    socialMediaPosition: "right",
     // social media usernames
     twitter: null,
     github: "alesanchezr",
