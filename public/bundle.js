@@ -711,18 +711,29 @@ function render(variables = {}) {
   if (variables.lastname !== null) aLastname = variables.lastname;
   let aSocialPosition = "position-null";
   if (variables.socialMediaPosition !== null) aSocialPosition = variables.socialMediaPosition;
+  let aTwitterUser = "";
+  if (variables.twitter !== null) aTwitterUser = variables.twitter;
+  let aInstagramUser = "";
+  if (variables.instagram !== null) aInstagramUser = variables.instagram;
+  let aGithubUser = "";
+  if (variables.github !== null) aGithubUser = variables.github;
+  let aLinkedinUser = "";
+  if (variables.linkedin !== null) aLinkedinUser = variables.linkedin;
+  let aCity = "City";
+  if (variables.city !== null) aCity = variables.city;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${aName + " " + aLastname}</h1>
           <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h3>${aCity}, USA</h3>
           <ul class="${aSocialPosition}">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${aTwitterUser}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${aGithubUser}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${aLinkedinUser}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${aInstagramUser}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -743,7 +754,7 @@ window.onload = () => {
     socialMediaPosition: "position-null",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
