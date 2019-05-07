@@ -721,14 +721,18 @@ function render(variables = {}) {
   if (variables.linkedin !== null) aLinkedinUser = variables.linkedin;
   let aCity = "City";
   if (variables.city !== null) aCity = variables.city;
+  let aCountry = "Country";
+  if (variables.country !== null) aCountry = variables.country;
+  let aRole = "Role";
+  if (variables.role !== null) aRole = variables.role;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${aName + " " + aLastname}</h1>
-          <h2>Web Developer</h2>
-          <h3>${aCity}, USA</h3>
+          <h2>${aRole}</h2>
+          <h3>${aCity}, ${aCountry}</h3>
           <ul class="${aSocialPosition}">
             <li><a href="https://twitter.com/${aTwitterUser}"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://github.com/${aGithubUser}"><i class="fa fa-github"></i></a></li>
